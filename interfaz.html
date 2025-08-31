@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio de Sesión</title>
+  <link rel="stylesheet" href="interfaz.css" />
+</head>
+
+<!-- Header principal con logo, título y navegación -->
+<header style="display: flex; align-items: center; padding: 10px; position: relative;">
+  <!-- Logo -->
+  <img src="perro.png" alt="Logo" style="height: 80px;" />
+  <!-- Título centrado -->
+  <h1 style="flex: 1; text-align: center; margin: 0;">¡Pasea a tu perro!</h1>
+  <!-- Menú de navegación principal -->
+  <nav style="position: absolute; right: 10px;">
+    <!-- Navegación para usuarios clientes -->
+    <ul id="navPrincipal">
+      <li id="divCerrarSesion" class="secciones">
+        <a id="btnCerrarSesion">Cerrar Sesion</a>
+      </li>
+      <li id="divContrataciones" class="secciones">
+        <a id="btnEstado">Pendientes</a>
+      </li>
+      <li id="divPaseadores" class="secciones">
+        <a id="btnListado">Informacion</a>
+      </li>
+      <li id="divPerfil" class="secciones">
+        <a id="btnInicio">Inicio</a>
+      </li>
+    </ul>
+
+    <!-- Navegación para usuarios paseadores -->
+    <ul id="navPaseador">
+      <li id="divCerrarSesionP" class="secciones">
+        <a id="btnCerrarSesion2">Cerrar Sesión</a>
+      </li>
+      <li id="divEstadisticas" class="secciones">
+        <a id="btnEstadisticas">Perros Asignados</a>
+      </li>
+      <li id="divPerfilP" class="secciones">
+        <a id="btnInicio2">Inicio</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<body>
+
+  <!-- Sección de LOGIN -->
+  <div class="secciones" id="login">
+    <img src="perro.png" alt="Logo" />
+    <h2>Iniciar Sesión</h2>
+    <form action="interfaz.html">
+      <label for="userlogin">Nombre de usuario:</label>
+      <input type="text" id="userlogin" name="userlogin" required /><br /><br />
+
+      <label for="passlogin">Contraseña:</label>
+      <input type="text" id="passlogin" name="passlogin" required /><br /><br />
+
+      <!-- Botón para ejecutar login -->
+      <input type="button" id="ingreso" value="Ingresar" />
+    </form>
+
+    <!-- Link para mostrar formulario de registro -->
+    <div id="ocultarRegistro">
+      <p>
+        ¿Aun no tenés cuenta?
+        <a href="#" id="btnRegistro">Registrate!</a>
+      </p>
+    </div>
+
+    <!-- Mensajes de error o confirmación -->
+    <div>
+      <p id="pErrorLogin"></p>
+    </div>
+    <div>
+      <p id="usuarioCreado"></p>
+    </div>
+  </div>
+
+  <!-- Contenedor para la gestión de perros asignados al paseador -->
+  <div class="secciones" id="gestionPerrosAsignados"></div>
+
+  <!-- Mensajes generales de procesos -->
+  <div id="msjProceso"></div>
+
+  <!-- Sección para mostrar estadísticas de paseos -->
+  <div class="secciones" id="estadisticasPaseos"></div>
+
+  <!-- Sección de REGISTRO -->
+  <div class="secciones" id="registrarse">
+    <img src="perro.png" alt="Logo" />
+    <h2>Registrarse</h2>
+    <form>
+      <label for="nombreregistro">Nombre:</label>
+      <input type="text" id="nombreregistro" name="nombreregistro" required /><br /><br />
+
+      <label for="userregistro">Nombre de usuario:</label>
+      <input type="text" id="userregistro" name="userregistro" required /><br /><br />
+
+      <label for="passregistro">Contraseña:</label>
+      <input type="text" id="passregistro" name="passregistro" required /><br /><br />
+
+      <label for="nombrePerro">Nombre de tu Perro:</label>
+      <input type="text" id="nombrePerro" name="nombrePerro" required /><br /><br />
+
+      <label for="tamano">Tamaño del Perro:</label>
+      <select id="tamano" name="tamano" required>
+        <option value="">-- Seleccioná un tamaño --</option>
+        <option value="Chico">Chico</option>
+        <option value="Mediano">Mediano</option>
+        <option value="Grande">Grande</option>
+      </select>
+      <br /><br />
+
+      <!-- Botón para guardar el registro -->
+      <button type="button" id="btnRegistroCompletado">Guardar Cambios</button>
+      <p id="pRegistro"></p>
+    </form>
+  </div>
+
+  <!-- Sección para elegir paseador (combo dinámico) -->
+  <div id="comboDesplegable" class="secciones">
+    <h2>Selecciona tu paseador preferido</h2>
+    <div id="contenedorCombo"></div>
+    <div id="exito"></div>
+  </div>
+
+  <!-- Sección de información: listado estático de paseadores con perros asignados -->
+  <div class="secciones" id="informacion">
+    <h3>Listado completo de paseadores:</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Perros asignados</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Juan</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Jose</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Ana</td>
+          <td>2</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Div donde se mostrará la contratación activa -->
+  <div id="contratacion" class="secciones"></div>
+
+  <!-- Scripts necesarios para la funcionalidad -->
+  <script src="clases.js"></script>
+  <script src="sistema.js"></script>
+  <script src="precargas.js"></script>
+  <script src="interfaz.js"></script>
+
+</body>
+</html>
